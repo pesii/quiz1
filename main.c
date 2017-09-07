@@ -31,7 +31,7 @@ char *my_strncat(char *destination, const char *source, int n)
  */
 int my_strcmp(const char *s1, const char *s2) 
 {
-	int i = 0, len_s1 = 0, len_s2 = 0, return_val = 99;
+	int i = 0, return_val = 0;
 	
 	for(i; (*(s1+i) && *(s2+i)); i++) {
 		if(*(s1+i) == *(s2+i)) {
