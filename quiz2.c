@@ -43,37 +43,28 @@ int main()
     return 0;
 }
 
-// Precondition: n > 0
+/// Precondition: n > 0
 int deleteAtPositionN(struct node **pHead, int n, int *pData) {
-    struct node *temp;
-    struct node *temp2;
-    temp = pHead;
-    
-    int i = 1;
-    while (*pHead != NULL) {
-        
-        if (n == 1) {
-            temp = *pHead;
-            *pHead = (*pHead)->pNext;
-            free(temp);
-        } else if (n == i){
-            temp2 = temp->pNext;
-            free(temp);
-        }
-        
-        
-        /*
-        if (i == n) {
-            ;    
-        }
-        */
-        
-        temp2 = temp;
-        temp = temp->pNext;
-        i++;
-    }
+	int i=0;
+	struct node *traverse = NULL, *prev = NULL;
+	
+	if(*pHead) {
+		traverse = *pHead;
+	} else {
+		return 0;
+	}
+	
+	while(pHead && (i < n)) {
+		prev = traverse;
+		traverse = traverse->pNext;
+		i++;
+	}
+	prev->pNext = traverse->pNext;
+	free(traverse);
+	
+	return 1;
 }
-
+/*
 int trav(struct node *pHead) {
     printf("You entered traverse function\n");
     struct node *tmp;
@@ -85,3 +76,4 @@ int trav(struct node *pHead) {
         //free(node);
     }
 }
+*/
