@@ -9,6 +9,7 @@ int deleteAtPositionN(struct node **pHead, int n, int *pData) {
 		return 0;
 	}
 	
+	prev = traverse;
 	while(pHead && (i < n)) {
 		prev = traverse;
 		traverse = traverse->pNext;
